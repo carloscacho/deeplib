@@ -7,7 +7,7 @@ com isso, você pode ajustar os paramanetros da sua rede
 
 """
 import numpy as np 
-from deepLib.tensor import Tensor
+from deeplib.tensor import Tensor
 
 class Loss:
     def loss(self, predicted: Tensor, actual: Tensor) -> float:

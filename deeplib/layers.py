@@ -15,7 +15,7 @@ entrada -> linear  -> tanh -> linear -> saida
 """
 from typing import Dict, Callable
 import numpy as np 
-from deepLib.tensor import Tensor
+from deeplib.tensor import Tensor
 
 class Layer:
     def __init__(self) -> None:
