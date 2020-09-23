@@ -7,7 +7,7 @@ Uma rede neural é apenas uma coleção de camadas (layers).
 Ela se comporta muito como uma camada(layer), embora
 não vamos fazer novamente uma camada
 """
-from typing import Sequence
+from typing import Sequence, Iterator, Tuple
 
 from deeplib.tensor import Tensor
 from deeplib.layers import Layer
@@ -25,4 +25,10 @@ class NeuralNet:
         for layer in reversed(self.layers):
             grad = layer.backward(grad)
         return grad
+
+    def params_and_grads(self) -> Iterator[Tuple[Tensor, Tensor]]:
+        for layer in self.layers:
+            for name, param in layer.params.items():
+                grad = layer.grads[name]
+                yield param, grad
 
